@@ -25,3 +25,14 @@ Route::controller(StudentController::class)->name('students.')->prefix('students
     Route::get('/add', 'add')->name('add');
     Route::post('/', 'school')->name('school');
 });
+
+
+// Just an example
+// Route::controller(ModelController::class)->name('model.')->prefix('model')->group(function () {
+//     Route::get('/', 'index')->name('index');
+//     Route::post('/store', 'store')->name('store');
+//     Route::post('/update', 'update')->name('update');
+//     Route::delete('/{id}', 'destroy')->name('delete');
+//     Route::get('/getData', 'getData')->name('getData');
+//     Route::put('/activate/{uuid}', 'activate')->name('activate');
+// });
