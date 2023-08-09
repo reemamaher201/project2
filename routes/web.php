@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/students',[StudentController::class, 'index'])->name('students.index');
-Route::get('/students/add',[StudentController::class, 'add'])->name('students.add');
-Route::post('/students',[StudentController::class, 'school'])->name('students.school');
+
+
+Route::controller(StudentController::class)->name('students.')->prefix('students')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/add', 'add')->name('add');
+    Route::post('/', 'school')->name('school');
+});

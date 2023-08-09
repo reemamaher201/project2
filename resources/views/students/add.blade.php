@@ -8,7 +8,7 @@
 <body>
     <h1 style= 'display: flex;
   justify-content: center; color:purple'>Add a Student</h1>
-<form method="post" action="{{route(students.school)}}">
+<form method="post" action="{{route('students.school')}}">
 @csrf
 @method('post')
     <div>
