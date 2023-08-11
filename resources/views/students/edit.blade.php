@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Add Student Form</title>
+    <title>Edit Student Form</title>
     <style>
         body {
             margin: 0;
@@ -84,7 +84,7 @@
 <div class="animated-background"></div>
 <div class="center-content">
     <div class="form-container">
-        <h1>Add a Student</h1>
+        <h1>Edit a Student</h1>
         <div>
             @if($errors->any())
                 <ul>
@@ -95,28 +95,28 @@
 
             @endif
         </div>
-        <form method="post" action="{{route('students.school')}}">
+        <form method="post" action="{{route('students.update',['student' => $students])}}">
             @csrf
-            @method('post')
+            @method('put')
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Name">
+                <input type="text" id="name" name="name" placeholder="Name" value="{{$students->name}}">
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email">
+                <input type="email" id="email" name="email" placeholder="Email" value="{{$students->email}}">
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <input type="text" id="address" name="address" placeholder="Address">
+                <input type="text" id="address" name="address" placeholder="Address" value="{{$students->address}}">
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" placeholder="Phone">
+                <input type="text" id="phone" name="phone" placeholder="Phone" value="{{$students->phone}}">
             </div>
             <div class="form-group">
-                <button type="submit">Save New Student</button>
+                <button type="submit">Save Edits</button>
             </div>
         </form>
     </div>
